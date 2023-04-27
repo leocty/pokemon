@@ -1,0 +1,89 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+  background: #4c4c4c2b;
+}
+
+.content {
+  padding: 24px;
+}
+
+.dflex {
+  display: flex;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+table {
+  background-color: #FFF;
+}
+
+th,
+td {
+  padding: 8px;
+}
+
+button {
+  padding: 8px 16px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #FFF;
+  background: #3b29cb;
+  border-color: #3b29cb;
+  border-radius: 4px;
+}
+
+button:disabled {
+  color: #3b29cb;
+  background: #FFF;
+}
+
+input {
+  padding: 8px 16px;
+  font-size: 16px;
+  border-radius: 4px;
+}
+
+.mt-24 {
+  margin-top: 24px;
+}
+
+.m-16 {
+  margin: 16px;
+}
+
+.mr-8 {
+  margin-right: 8px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.col-47 {
+  width: 47%;
+}

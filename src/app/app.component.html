@@ -1,0 +1,67 @@
+<div class="content" role="main">
+  <h3>Listado de Pokemon</h3>
+  <div class="dflex justify-content-between align-items-center">
+    <input #searchInput type="search" placeholder="Buscar" (keyup)="Search(searchInput.value)" />
+    <button type="button" (click)="ActionButton()">+ Nuevo</button>
+  </div>
+  <div class="list-pokemon mt-24">
+    <table class="table w-100">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Imagen</th>
+          <th>Ataque</th>
+          <th>Defensa</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td colspan="5" class="text-center" *ngIf="pokemons.length === 0">
+            No hay informacion para mostrar
+          </td>
+        </tr>
+        <tr *ngFor="let pokemon of pokemons" trackBy="id">
+          <td>{{pokemon?.name}}</td>
+          <td>
+            <img src="{{pokemon?.image}}" alt="Pokemon Img" class="pokemon-img"/>
+          </td>
+          <td>{{pokemon?.attack}}</td>
+          <td>{{pokemon?.defense}}</td>
+          <td class="dflex justify-content-center align-items-center">
+            <button type="button" class="mr-8" (click)="ActionButton(pokemon)">Editar</button>
+            <button type="button" (click)="Delete(pokemon.id)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="action-pokemon mt-24" *ngIf="showAcctions">
+    <h3 class="text-center">{{accion}} Pokemon</h3>
+    <form [formGroup]="pokemonForm">
+      <div class="dflex flex-wrap w-100">
+        <div class="dflex align-items-center justify-content-center col-47 m-16">
+          <label class="mr-8" for="inputName">Nombre:</label>
+          <input type="text" id="inputName" placeholder="Nombre" formControlName="name" />
+        </div>
+        <div class="dflex align-items-center justify-content-center col-47 m-16">
+          <label class="mr-8" for="inputAttack">Ataque:</label>
+          <input type="range" id="inputAttack" formControlName="attack" min="0" max="100" />
+        </div>
+        <div class="dflex align-items-center justify-content-center col-47 m-16">
+          <label class="mr-8" for="inputImage">Imagen:</label>
+          <input type="text" id="inputImage" placeholder="URL" formControlName="image" />
+        </div>
+        <div class="dflex align-items-center justify-content-center col-47 m-16">
+          <label class="mr-8" for="inputDefense">Defensa:</label>
+          <input type="range" id="inputDefense" formControlName="defense" min="0" max="100" />
+        </div>
+      </div>
+    </form>
+    <div class="dflex align-items-center justify-content-center">
+      <button type="button" class="mr-8" (click)="SaveAction()" [disabled]="pokemonForm.invalid">Guardar</button>
+      <button type="button" (click)="CancelActions()">Cancelar</button>
+    </div>
+  </div>
+</div>
+
